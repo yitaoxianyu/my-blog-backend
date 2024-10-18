@@ -1,0 +1,8 @@
+my-blog:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: 192.168.8.128
+    port: 3306
+    database: my_blog
+    username: root
+    password: "2861587619"

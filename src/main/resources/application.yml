@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/${my-blog.datasource.database}?useSSL=false&serverTimezone=UTC
+    username: ${my-blog.datasource.username}
+    password: ${my-blog.datasource.password}
+    driver-class-name: ${my-blog.datasource.driver-class-name}
