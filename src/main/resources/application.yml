@@ -6,3 +6,24 @@ spring:
     username: ${my-blog.datasource.username}
     password: ${my-blog.datasource.password}
     driver-class-name: ${my-blog.datasource.driver-class-name}
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    com:
+      xianyu:
+        myblogbackend:
+          mapper: debug
+          service: info
+          controller: info
+myblog:
+  jwt:
+    admin-secret-key: admin  #这里使用admin进行签名
+    admin-ttl: 7200000
+    admin-token-name: token
+    user-secret-key: user
+    user-ttl: 7200000
+    user-token-name: authentication
