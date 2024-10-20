@@ -6,11 +6,21 @@ spring:
     username: ${my-blog.datasource.username}
     password: ${my-blog.datasource.password}
     driver-class-name: ${my-blog.datasource.driver-class-name}
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: 2861587619@qq.com
+    password: vxcvwwdhnmofdfdj  # 这里填入你生成的授权码
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
 mybatis:
   #mapper配置文件
   mapper-locations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
 logging:
   level:
     com:

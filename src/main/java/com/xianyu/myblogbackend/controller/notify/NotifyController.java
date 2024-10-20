@@ -19,12 +19,21 @@ public class NotifyController {
 
     @PostMapping("/login")
     public Result login(@RequestBody LoginDTO loginDTO){
+
         notifyService.login(loginDTO);
+        return Result.success();
+    }
+
+    @PostMapping("/captcha/{email}")
+    public Result sendCaptcha(@PathVariable String email){
+
+        notifyService.sendCaptcha(email);
         return Result.success();
     }
 
     @PostMapping("/register")
     public Result register(@RequestBody RegisterDTO registerDTO){
+
         notifyService.register(registerDTO);
         return Result.success();
     }
