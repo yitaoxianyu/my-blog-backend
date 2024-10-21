@@ -3,7 +3,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xianyu.myblogbackend.mapper.UserMapper">
     <insert id="insert" parameterType="com.xianyu.myblogbackend.model.entity.User">
-        insert into users(username,password,status,email,login_time,role)
-            values (#{userName},#{password},#{status},#{email},#{loginTime},#{role})
+        insert into users(username,password,email,login_time,role)
+            values (#{userName},#{password},#{email},#{loginTime},#{role})
     </insert>
+    <select id="getByUsername" resultType="com.xianyu.myblogbackend.model.entity.User">
+        select * from users
+        <where>
+            username = #{username}
+        </where>
+    </select>
 </mapper>

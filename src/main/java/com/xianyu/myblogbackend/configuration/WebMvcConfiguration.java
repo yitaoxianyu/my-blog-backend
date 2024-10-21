@@ -21,9 +21,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         log.info("后台拦截器");
         //管理员拦截器
         registry.addInterceptor(jwtAdminInterceptor)
-                .addPathPatterns("/admin/**")
-                .excludePathPatterns("/notify/login")
-                .excludePathPatterns("/notify/register");
+                .addPathPatterns("/admin/**");
 
         //todo：添加一个用户功能拦截器，拦截路径为用户的特定功能
         //todo: 写一个登录接口，登录之后向header中添加token

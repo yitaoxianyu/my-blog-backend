@@ -1,9 +1,11 @@
 package com.xianyu.myblogbackend.controller.notify;
 
 
+import com.xianyu.myblogbackend.model.dto.CaptchaDTO;
 import com.xianyu.myblogbackend.model.dto.LoginDTO;
 import com.xianyu.myblogbackend.model.dto.RegisterDTO;
 import com.xianyu.myblogbackend.model.result.Result;
+import com.xianyu.myblogbackend.model.vo.LoginVO;
 import com.xianyu.myblogbackend.service.NotifyService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,21 +20,21 @@ public class NotifyController {
     private NotifyService notifyService;
 
     @PostMapping("/login")
-    public Result login(@RequestBody LoginDTO loginDTO){
+    public Result login(@RequestBody LoginDTO loginDTO) throws Exception {
 
-        notifyService.login(loginDTO);
-        return Result.success();
+        LoginVO loginVO = notifyService.login(loginDTO);
+        return Result.success(loginVO);
     }
 
-    @PostMapping("/captcha/{email}")
-    public Result sendCaptcha(@PathVariable String email){
+    @PostMapping("/captcha")
+    public Result sendCaptcha(@RequestBody CaptchaDTO captchaDTO) throws Exception {
 
-        notifyService.sendCaptcha(email);
+        notifyService.sendCaptcha(captchaDTO);
         return Result.success();
     }
 
     @PostMapping("/register")
-    public Result register(@RequestBody RegisterDTO registerDTO){
+    public Result register(@RequestBody RegisterDTO registerDTO) throws Exception {
 
         notifyService.register(registerDTO);
         return Result.success();
